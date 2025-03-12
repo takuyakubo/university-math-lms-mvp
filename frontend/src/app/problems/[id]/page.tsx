@@ -127,15 +127,15 @@ export default function ProblemDetailPage() {
           {problem.options.map((option) => (
             <div
               key={option.id}
-              className={`p-4 border rounded-lg cursor-pointer transition ${
+              className={`p-4 border rounded-lg cursor-pointer transition-all duration-200 ${
                 selectedOption === option.id
-                  ? 'border-blue-500 bg-blue-50'
-                  : 'border-gray-200 hover:border-blue-200'
+                  ? 'border-blue-500 bg-blue-50 shadow-md'
+                  : 'border-gray-200 hover:border-blue-200 hover:shadow-sm'
               } ${
                 isSubmitted && option.id === problem.correctOption
-                  ? 'border-green-500 bg-green-50'
+                  ? 'border-green-500 bg-green-50 shadow-md'
                   : isSubmitted && option.id === selectedOption && option.id !== problem.correctOption
-                  ? 'border-red-500 bg-red-50'
+                  ? 'border-red-500 bg-red-50 shadow-md'
                   : ''
               }`}
               onClick={() => handleOptionSelect(option.id)}
@@ -143,7 +143,7 @@ export default function ProblemDetailPage() {
               <div className="flex items-start">
                 <div className="mr-3 flex-shrink-0">
                   <div
-                    className={`w-6 h-6 flex items-center justify-center rounded-full ${
+                    className={`w-6 h-6 flex items-center justify-center rounded-full transition-colors ${
                       selectedOption === option.id
                         ? 'bg-blue-500 text-white'
                         : 'bg-gray-200'

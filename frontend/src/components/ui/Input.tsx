@@ -53,7 +53,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               ${leftIcon ? 'pl-10' : 'pl-4'}
               ${rightIcon ? 'pr-10' : 'pr-4'}
               ${error ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'}
-              block py-2 w-full shadow-sm rounded-md
+              block py-2 w-full shadow-sm rounded-md form-input
               focus:outline-none focus:ring-2 focus:ring-offset-0 focus:border-transparent
               ${className}
             `}

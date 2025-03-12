@@ -115,7 +115,7 @@ const RegisterForm: React.FC = () => {
             <label className="inline-flex items-center">
               <input
                 type="radio"
-                className="form-radio text-blue-600"
+                className="form-radio text-blue-600 rounded-full h-4 w-4"
                 value="student"
                 {...register('role')}
               />
@@ -124,7 +124,7 @@ const RegisterForm: React.FC = () => {
             <label className="inline-flex items-center">
               <input
                 type="radio"
-                className="form-radio text-blue-600"
+                className="form-radio text-blue-600 rounded-full h-4 w-4"
                 value="teacher"
                 {...register('role')}
               />

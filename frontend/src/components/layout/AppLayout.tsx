@@ -29,7 +29,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
       <div className="flex flex-1">
         {isAuthenticated && <Sidebar />}
         
-        <main className={`flex-1 ${isAuthenticated ? 'md:ml-64' : ''} p-4 md:p-8`}>
+        <main className={`flex-1 ${isAuthenticated ? 'md:ml-64' : ''} p-4 md:p-8 transition-all duration-300`}>
           {/* アラート表示 */}
           {alert.show && (
             <div 
