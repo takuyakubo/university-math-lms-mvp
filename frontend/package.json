@@ -11,6 +11,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@next/font": "^14.2.15",
     "axios": "^1.5.1",
     "next": "^14.0.0",
     "react": "^18.2.0",
