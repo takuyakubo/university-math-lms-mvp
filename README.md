@@ -4,7 +4,7 @@
 
 ## 概要
 
-このプロジェクトは、大学生が数学を効率的に学習できるよう支援するための学習管理システムのMVP版を開発することを目的としています。フロントエンドにはNextJS、バックエンドにはPython（FastAPI）を使用しています。
+このプロジェクトは、大学生が数学を効率的に学習できるよう支援するための学習管理システムのMVP版を開発することを目的としています。フロントエンドにはNext.js（TypeScript）、バックエンドにはPython（FastAPI）を使用しています。
 
 ## MVPの主な機能
 
@@ -44,9 +44,66 @@ MVPの開発に必要なドキュメントは以下の構成で整理されて�
   - [02_デプロイ手順](./docs/05_開発・運用ガイド/02_デプロイ手順.md)
   - [03_テスト計画](./docs/05_開発・運用ガイド/03_テスト計画.md)
 
-## インストール
+## 開発環境構築
 
 インストール手順については、[開発環境構築](./docs/05_開発・運用ガイド/01_開発環境構築.md)を参照してください。
+
+### クイックスタート (Docker)
+
+```bash
+# リポジトリのクローン
+git clone https://github.com/takuyakubo/university-math-lms-mvp.git
+cd university-math-lms-mvp
+
+# Docker環境の起動
+docker-compose up -d
+```
+
+### 手動セットアップ
+
+```bash
+# バックエンド
+cd backend
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+cp .env.example .env  # 環境変数を編集
+uvicorn app.main:app --reload
+
+# フロントエンド
+cd frontend
+npm install
+cp .env.example .env.local  # 環境変数を編集
+npm run dev
+```
+
+## プロジェクト構造
+
+```
+university-math-lms-mvp/
+├── backend/               # バックエンドアプリケーション
+│   ├── app/
+│   │   ├── api/           # APIルート
+│   │   ├── core/          # 設定と共通機能
+│   │   ├── db/            # データベース設定
+│   │   ├── models/        # SQLAlchemyモデル
+│   │   ├── schemas/       # Pydanticスキーマ
+│   │   └── services/      # ビジネスロジック
+│   ├── migrations/        # Alembicマイグレーション
+│   ├── scripts/           # ユーティリティスクリプト
+│   └── tests/             # バックエンドテスト
+├── frontend/              # フロントエンドアプリケーション
+│   ├── public/            # 静的ファイル
+│   ├── src/
+│   │   ├── components/    # Reactコンポーネント
+│   │   ├── hooks/         # カスタムフック
+│   │   ├── pages/         # Next.jsページ
+│   │   ├── styles/        # CSSとスタイル
+│   │   └── utils/         # ユーティリティ関数
+│   └── tests/             # フロントエンドテスト
+├── docs/                  # プロジェクトドキュメント
+└── docker-compose.yml     # Docker構成
+```
 
 ## 開発状況
 
