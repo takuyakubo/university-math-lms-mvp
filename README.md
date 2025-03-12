@@ -95,11 +95,10 @@ university-math-lms-mvp/
 ├── frontend/              # フロントエンドアプリケーション
 │   ├── public/            # 静的ファイル
 │   ├── src/
+│   │   ├── app/           # Next.js App Router
 │   │   ├── components/    # Reactコンポーネント
-│   │   ├── hooks/         # カスタムフック
-│   │   ├── pages/         # Next.jsページ
-│   │   ├── styles/        # CSSとスタイル
-│   │   └── utils/         # ユーティリティ関数
+│   │   ├── context/       # Reactコンテキスト
+│   │   └── styles/        # CSSとスタイル
 │   └── tests/             # フロントエンドテスト
 ├── docs/                  # プロジェクトドキュメント
 └── docker-compose.yml     # Docker構成
