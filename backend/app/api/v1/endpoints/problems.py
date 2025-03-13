@@ -204,7 +204,7 @@ def delete_problem_by_id(
     problem_id: str,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_teacher),
-) -> Any:
+) -> None:
     """
     問題を削除する (教員のみ)
     """
@@ -216,7 +216,6 @@ def delete_problem_by_id(
         )
     
     delete_problem(db, problem)
-    return None
 
 
 @router.post("/{problem_id}/choices", response_model=ChoiceResponse)
@@ -291,7 +290,7 @@ def delete_choice_by_id(
     choice_id: str,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_teacher),
-) -> Any:
+) -> None:
     """
     選択肢を削除する (教員のみ)
     """
@@ -310,7 +309,6 @@ def delete_choice_by_id(
         )
     
     delete_choice(db, choice)
-    return None
 
 
 @router.get("/{problem_id}/stats", response_model=Dict)

@@ -1,11 +1,15 @@
 import os
 import sys
+import uuid
 from typing import Any, Dict, Generator
 
 import pytest
+import sqlalchemy
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
+from sqlalchemy.dialects import postgresql
+from sqlalchemy.dialects.postgresql import UUID as PgUUID
 from sqlalchemy.orm import Session, sessionmaker
 
 # Add the parent directory to the path
@@ -18,11 +22,15 @@ from app.models.user import User
 from app.models.problem import Problem, Choice, Tag, ProblemTag
 from app.models.user_progress import UserAnswer, UserProgress
 
-from .utils import create_test_user, authentication_token_from_user
+from tests.utils import create_test_user, authentication_token_from_user
 
 
 # Use an in-memory SQLite database for testing
 SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
+
+# SQLiteではUUIDを使用しないようにする方法を採用する
+# 通常のテストではなく、独立したモックテストを実装する方針に変更
+
 engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 

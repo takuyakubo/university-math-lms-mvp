@@ -115,7 +115,7 @@ def delete_tag(
     tag_id: str,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_teacher),
-) -> Any:
+) -> None:
     """
     タグを削除する (教員のみ)
     """
@@ -128,4 +128,3 @@ def delete_tag(
     
     db.delete(tag)
     db.commit()
-    return None

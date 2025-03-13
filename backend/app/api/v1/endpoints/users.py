@@ -92,7 +92,7 @@ def delete_user_by_id(
     user_id: str,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_teacher),
-) -> Any:
+) -> None:
     """
     ユーザーを削除する (教員のみ)
     """
@@ -103,4 +103,3 @@ def delete_user_by_id(
             detail="User not found",
         )
     delete_user(db, user)
-    return None
